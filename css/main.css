@@ -1,0 +1,73 @@
+html{
+	height: 100vh;
+}
+
+body {
+	background-color:#262A39;
+	color: black;
+	width:100%;
+	height: 100%;
+	margin:0; 
+	padding:0;
+	display:flex;
+}
+
+main {
+	background-color: #8a8a8a;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: stretch;
+}
+
+h1 {
+	color: navy;
+	text-align: center;
+}
+
+p {
+	font-family: verdana;
+	font-size: 20px;
+}
+
+#clock-section {
+	position: relative;
+	flex: 100vh;					/*initial width of flexible item is 100% of viewport width*/
+	max-height: 100vw;				/*maxium height is 100% of viewport width*/
+	max-width: 100vh;				/*maxium width is 100% of viewport height*/
+	aspect-ratio: 1/1;				/*in connection with max-height and max-width above - full screen quadrat */
+	display: flex;					/* so child elements can use flexbox stuff too*/
+	justify-content: center;		
+	align-items: center;
+}
+
+#weather-section {
+	flex: auto;
+	height: 100vh;
+}
+@media (max-width: 100vh){
+	#weather-section{
+		max-height: calc(100% - 100vw);
+	}
+}
+
+#clock, #clock-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#clockface {
+	background-color: #faf0e6;
+	border-color: black;
+	outline-color: red; /*SecondHand*/
+	color: black;
+	font-family: Noto Sans;
+}
+
+#clock-functions {
+	position: absolute;
+}

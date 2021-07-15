@@ -1,12 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Analog Clock</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name='viewport' content ='width = device-width, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, user-scalable = no, viewport-fit=cover' >
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="Clock">
+		<title>Analog Clock</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+
     </head>
     <body>
-        <canvas id="clock"></canvas>
-        <script src="Vector.js"></script>
-        <script src="clock.js"></script>
-    </body>
+		<main>
+			<section id="clock-section">
+				<canvas id="clock-background"></canvas>
+				<div id="clock-functions">
+					
+				</div>
+				<canvas id="clock"></canvas>
+			</section>
+			<section id="weather-section">
+				<div>
+					
+				</div>
+			</section>
+		</main>
+	</body>
+	<script src="Vector.js"></script>
+    <script src="clock.js"></script>
 </html>
