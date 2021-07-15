@@ -22,7 +22,6 @@ function getPropeties(className){
 	//element.classList.add(className);
 	element.setAttribute('id', className);
 	document.body.appendChild(element);
-	//document.getElementById("clock").appendChild(element);
 	
 	// Get needed stuff from the DOM and put it in the cache
 	let compStyles = window.getComputedStyle(element);
@@ -70,7 +69,6 @@ function draw () {
 	function background() {
 		// Background
         ctx_bgr.beginPath();
-        //ctx.arc(c.x, c.y, canvas.width / 2 - 10, 0, Math.PI * 2);
 		ctx_bgr.arc(c.x, c.y, canvas.width / 2 - canvas.width / 60, 0, Math.PI * 2);
 		ctx_bgr.fillStyle = classProperties.clockface.fill;
         ctx_bgr.fill();
@@ -79,29 +77,23 @@ function draw () {
     function face () {
         
 		// Border
-        //ctx.lineWidth = 5;
 		let lwf = canvas.width / 300;
 		ctx.lineWidth = lwf;
         ctx.strokeStyle = classProperties.clockface.stroke;
         ctx.beginPath();
-        //ctx.arc(c.x, c.y, canvas.width / 2 - 10, 0, Math.PI * 2);
 		let rf = canvas.width / 2 - canvas.width / 60;
         ctx.arc(c.x, c.y, rf, 0, Math.PI * 2);
 		ctx.stroke();
 		
         // Dashes
-        //ctx.lineWidth = 3;
 		ctx.lineWidth = lwf;
         for (let i = 0; i < 60; i++) {
-            //let r = canvas.width / 2 - 15,
 			let l = canvas.width / 80,
 				r = rf - l;
-            //ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
 			ctx.strokeStyle = classProperties.clockface.stroke;
             if (i % 5 === 0)
 				l *= 2.5,
                 r = rf - l,
-                //ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
 				ctx.strokeStyle = classProperties.clockface.stroke;
             let v = new Vector(r, Math.PI * 2 * (i / 60) - Math.PI / 2);
             ctx.beginPath();
@@ -112,9 +104,7 @@ function draw () {
         }
 
         // Numbers
-        //ctx.font = '18px Noto Sans';
 		ctx.font = classProperties.clockface.font;
-        //ctx.fillStyle = 'black';
 		ctx.fillStyle = classProperties.clockface.color;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -125,30 +115,21 @@ function draw () {
 
         // Center button
         ctx.beginPath();
-        //ctx.arc(c.x, c.y, 3.75, 0, Math.PI * 2);
 		ctx.arc(c.x, c.y, canvas.width / 130, 0, Math.PI * 2);
-        //ctx.fillStyle = 'white';
 		ctx.fillStyle = classProperties.clockface.fill;
-        //ctx.strokeStyle = 'black';
 		ctx.strokeStyle = classProperties.clockface.second;
-		//ctx.lineWidth = 2.5;
 		ctx.lineWidth = canvas.width / 180;
         ctx.fill();
-        ctx.stroke();
-		
+        ctx.stroke();	
 
     }
 
     function secondHand () {
-        //ctx.lineWidth = 1.5;
 		ctx.lineWidth = canvas.width / 200;
-        //ctx.strokeStyle = 'black';
 		ctx.strokeStyle = classProperties.clockface.second;
         ctx.beginPath();
         let a = Math.PI * 2 * (seconds / 60) - Math.PI / 2;
-        //let v = new Vector(canvas.width / 2 - 55, a);
 		let v = new Vector(canvas.width / 2 - canvas.width / 6, a);
-        //let v2 = new Vector(-20, a);
 		let v2 = new Vector(-canvas.width / 20, a);
         ctx.moveTo(v2.getX() + c.x, v2.getY() + c.y);
         ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
@@ -156,13 +137,10 @@ function draw () {
     }
 
     function minuteHand () {
-        //ctx.lineWidth = 4;
 		ctx.lineWidth = canvas.width / 75;
-        //ctx.strokeStyle = 'black';
 		ctx.strokeStyle = classProperties.clockface.stroke;
         ctx.beginPath();
         let a = Math.PI * 2 * (minutes / 60) - Math.PI / 2;
-        //let v = new Vector(canvas.width / 2 - 55, a);
 		let v = new Vector(canvas.width / 2 - canvas.width / 6, a);
         ctx.moveTo(c.x, c.y);
         ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
@@ -170,13 +148,10 @@ function draw () {
     }
 
     function hourHand () {
-        //ctx.lineWidth = 4;
 		ctx.lineWidth = canvas.width / 75;
-        //ctx.strokeStyle = 'black';
 		ctx.strokeStyle = classProperties.clockface.stroke;
         ctx.beginPath();
         let a = Math.PI * 2 * (hours / 12) - Math.PI / 2;
-        //let v = new Vector(canvas.width / 2 - 90, a);
 		let v = new Vector(canvas.width / 2 - canvas.width / 3.5, a);
         ctx.moveTo(c.x, c.y);
         ctx.lineTo(v.getX() + c.x, v.getY() + c.y);
